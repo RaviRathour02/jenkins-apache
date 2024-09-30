@@ -49,5 +49,5 @@ jobs:
         docker push myrepo6783.azurecr.io/java-image:latest
 
     - name: acr to aks link
-      run: az aks update -n aa-cluster -g mdev-grp --attach-acr myrepo6783
+      run: az aks update -n aa-cluster -g dev-grp --attach-acr myrepo6783
    
