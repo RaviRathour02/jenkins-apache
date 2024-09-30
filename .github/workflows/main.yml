@@ -48,6 +48,8 @@ jobs:
       run: |
         docker push myrepo6783.azurecr.io/java-image:latest
 
-    - name: acr to aks link
-      run: az aks update -n aa-cluster -g dev-grp --attach-acr myrepo6783 -y
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_SP_CREDENTIALS }}
    
