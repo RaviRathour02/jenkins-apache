@@ -26,14 +26,19 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: war-file
-        path: /home/runner/work/java-pr/java-pr/webapp/target/*.war
+        path: /home/runner/work/jenkins-apache/jenkins-apache/webapp/target/*.war
 
     - name: List build directory contents
-      run: ls -la /home/runner/work/java-pr/java-pr/webapp/target/
+      run: ls -la /home/runner/work/jenkins-apache/jenkins-apache/webapp/target
 
     - name: Build Docker image
       run: |
         docker build -t my-image .
         docker tag my-image:latest myrepo6783.azurecr.io/samples/java-image:latest
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
    
