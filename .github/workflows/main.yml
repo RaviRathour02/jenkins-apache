@@ -36,6 +36,10 @@ jobs:
         docker build -t my-image .
         docker tag my-image:latest myrepo6783.azurecr.io/java-image:latest
 
+    - name: Push Docker image to ACR
+      run: |
+        docker push myrepo6783.azurecr.io/java-image:latest
+
     - name: Azure Login
       uses: azure/login@v1
       with:
