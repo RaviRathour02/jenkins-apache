@@ -31,4 +31,9 @@ jobs:
     - name: List build directory contents
       run: ls -la /home/runner/work/java-pr/java-pr/webapp/target/
 
+    - name: Build Docker image
+      run: |
+        docker build -t my-image .
+        docker tag my-image:latest myrepo6783.azurecr.io/samples/java-image:latest
+
    
