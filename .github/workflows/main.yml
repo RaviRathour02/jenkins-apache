@@ -34,11 +34,14 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t my-image .
-        docker tag my-image:latest myrepo6783.azurecr.io/samples/java-image:latest
+        docker tag my-image:latest myrepo6783.azurecr.io/java-image:latest
 
     - name: Azure Login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: login to acr
+      run: az acr login --name myrepo6783
 
    
