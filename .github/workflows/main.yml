@@ -66,4 +66,11 @@ jobs:
         cluster-name: aa-cluster
         admin: 'false'
         use-kubelogin: 'true'
-   
+   - name: Deploy to AKS
+      run: |
+        kubectl create secret docker-registry acr-auth \
+          --docker-server=${{ secrets.ACR_LOGIN_SERVER }} \
+          --docker-username=${{ secrets.ACR_USERNAME }} \
+          --docker-password=${{ secrets.ACR_PASSWORD }} \
+          --namespace default || true
+        kubectl apply -f deployment.yaml
