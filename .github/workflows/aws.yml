@@ -58,13 +58,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
-    - name: create cluster.
-      run: |
-          aws ecs create-cluster --cluster-name $ECS_CLUSTER
-    - name: Create Task Definition
-      run: |
-          aws ecs register-task-definition --cli-input-json file://task-definition.json 
-
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
         
@@ -83,7 +76,14 @@ jobs:
         # be deployed to ECS.
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+    - name: create cluster.
+      run: |
+          aws ecs create-cluster --cluster-name $ECS_CLUSTER
+    - name: Create Task Definition
+      run: |
+          aws ecs register-task-definition --cli-input-json file://task-definition.json 
 
     - name: Create ECS Service
       run: |
