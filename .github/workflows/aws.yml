@@ -34,7 +34,7 @@ env:
   AWS_REGION: ap-south-1                   
   ECR_REPOSITORY: ecs-repo         
   ECS_SERVICE: service1               
-  ECS_CLUSTER: EcsCluster3                 
+  ECS_CLUSTER: EcsCluster4                 
   ECS_TASK_DEFINITION: latest-task
   COUNT: 1
   
