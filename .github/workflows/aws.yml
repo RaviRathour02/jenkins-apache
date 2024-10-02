@@ -87,11 +87,11 @@ jobs:
 
     - name: Create ECS Service
       run: |
-          aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --force-new-deployment 
-          # aws ecs create-service \
-           # --cluster $ECS_CLUSTER \
-            # --service-name $ECS_SERVICE \
-            # --task-definition $ECS_TASK_DEFINITION \
-            # --desired-count $COUNT \
-            # --launch-type FARGATE \
-            # --network-configuration "awsvpcConfiguration={subnets=[subnet-08254dbea9e3e5ae6],securityGroups=[sg-095a954b2e7d062c8],assignPublicIp=ENABLED}"
+          #aws ecs update-service --cluster $ECS_CLUSTER --service $ECS_SERVICE --force-new-deployment 
+           aws ecs create-service \
+           --cluster $ECS_CLUSTER \
+           --service-name $ECS_SERVICE \
+           --task-definition $ECS_TASK_DEFINITION \
+           --desired-count $COUNT \
+           --launch-type FARGATE \
+           --network-configuration "awsvpcConfiguration={subnets=[subnet-08254dbea9e3e5ae6],securityGroups=[sg-095a954b2e7d062c8],assignPublicIp=ENABLED}"
