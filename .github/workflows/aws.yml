@@ -63,7 +63,7 @@ jobs:
           aws ecs create-cluster --cluster-name mycluster2
     - name: Create Task Definition
       run: |
-          aws ecs register-task-definition --cli-input-json file://task-definition.json
+          aws ecs register-task-definition --cli-input-json file://task-definition.json --debug
 
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
