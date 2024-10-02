@@ -3,8 +3,8 @@
   "networkMode": "awsvpc",
   "containerDefinitions": [
     {
-      "name": "my-container3",
-      "image": "559050231342.dkr.ecr.ap-south-1.amazonaws.com/ecs-repo:latest",
+      "name": "my-container4",
+      "image": "559050231342.dkr.ecr.ap-south-1.amazonaws.com/ecs-repo:8baa44d62517a6d0b7141a0e0936d2914a4d8011",
       "essential": true,
       "memory": 512,
       "cpu": 256,
