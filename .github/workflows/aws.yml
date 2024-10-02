@@ -60,7 +60,7 @@ jobs:
 
     - name: create cluster.
       run: |
-          aws ecs create-cluster --cluster-name mycluster2
+          aws ecs create-cluster --cluster-name $ECS_CLUSTER
     - name: Create Task Definition
       run: |
           aws ecs register-task-definition --cli-input-json file://task-definition.json --debug
