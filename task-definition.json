@@ -21,3 +21,4 @@
   "memory": "512",
   "executionRoleArn": "arn:aws:iam::559050231342:role/ecsTaskExecutionRole",
   "taskRoleArn": "arn:aws:iam::559050231342:role/cluster-manage"
+}
