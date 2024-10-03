@@ -37,6 +37,7 @@ env:
   ECS_CLUSTER: EcsCluster5                 
   ECS_TASK_DEFINITION: latest-task
   COUNT: 1
+  CONTAINER_NAME: ecs-container
   
 permissions:
   contents: read
